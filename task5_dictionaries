@@ -1,0 +1,31 @@
+# a) Total global sales by genre
+sales_by_genre = {}
+for game in video_game_sales:
+    genre = game[GENRE]
+    if genre in sales_by_genre:
+        sales_by_genre[genre] += game[GLOBAL_SALES]
+    else:
+        sales_by_genre[genre] = game[GLOBAL_SALES]
+print(sales_by_genre)
+
+# b) Count of games per publisher
+games_per_publisher = {}
+for game in video_game_sales:
+    publisher = game[PUBLISHER]
+    if publisher in games_per_publisher:
+        games_per_publisher[publisher] += 1
+    else:
+        games_per_publisher[publisher] = 1
+print(games_per_publisher)
+
+# c) Dictionary of the #1 ranked game's details
+first_game = video_game_sales[0]
+top_game = {
+    'name': first_game[NAME],
+    'year': first_game[YEAR],
+    'genre': first_game[GENRE],
+    'publisher': first_game[PUBLISHER],
+    'global_sales': first_game[GLOBAL_SALES]
+}
+for key, value in top_game.items():
+    print(f"{key}: {value}")
